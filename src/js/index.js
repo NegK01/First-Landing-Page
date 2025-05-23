@@ -18,8 +18,9 @@ let currentIndex = 0;
 
 function updateBackground() {
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    const folder = isDesktop ? "desktop" : "mobile";
     const images = isDesktop ? imagesDesktop : imagesMobile;
-    heroSection.style.backgroundImage = `url("images/${images[currentIndex]}")`;
+    heroSection.style.backgroundImage = `url("../../public/img/${folder}/${images[currentIndex]}")`;
 }
 
 arrows[0].addEventListener("click", () => {
