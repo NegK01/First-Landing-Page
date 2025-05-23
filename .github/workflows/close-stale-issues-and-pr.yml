@@ -24,4 +24,4 @@ jobs:
           close-pr-message: 'Este PR ha sido cerrado automáticamente por inactividad.'
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
-          only-labels: 'stale-check'  #Solo actúa si el issue/PR tiene esta etiqueta
+          #only-labels: 'stale-check'  #Solo actúa si el issue/PR tiene esta etiqueta
