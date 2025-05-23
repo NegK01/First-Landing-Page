@@ -38,7 +38,7 @@ body {
 
 .main__hero {
     min-height: 500px;
-    background-image: url("../../public/img/mobile/mobile-image-hero-1.jpg");
+    background-image: url("../img/mobile/mobile-image-hero-1.jpg");
     background-size: cover;
     background-position: center;
     grid-area: main;
@@ -135,7 +135,7 @@ body {
     grid-area: image1;
     min-height: 250px;
     height: 100%;
-    background-image: url("../../public/img/image-about-dark.jpg");
+    background-image: url("../img/image-about-dark.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -146,7 +146,7 @@ body {
 
 .main__bg--second {
     grid-area: image2;
-    background-image: url("../../public/img/image-about-light.jpg");
+    background-image: url("../img/image-about-light.jpg");
 }
 
 @media (min-width: 768px) {
@@ -166,7 +166,7 @@ body {
     }
 
     .main__hero {
-        background-image: url("../../public/img/desktop/desktop-image-hero-1.jpg");
+        background-image: url("../img/desktop/desktop-image-hero-1.jpg");
     }
 
     .main__controls {
