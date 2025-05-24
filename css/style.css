@@ -1,8 +1,20 @@
 :root {
-    --white: hsl(0, 100%, 100%);
-    --grey: hsl(0, 0%, 63%);
-    --dark-grey: hsl(0, 0%, 27%);
-    --black: hsl(0, 0%, 0%);
+    --white: #ffffff;
+    --grey: #a1a1a1;
+    --dark-grey: #454545;
+    --black: #000000;
+
+    --bg: #fff;
+    --bg-footer: #f8f8f8;
+    --border: #a1a1a1;
+    /* --bg-hover: ; */
+    --text: #000;
+
+    /* --bg: #111;
+    --bg-footer: #222;
+    --border: #444
+    --bg-hover: #555;
+    --text: #eee; */
 }
 
 * {
@@ -22,18 +34,19 @@ body {
 }
 
 .main {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, max-content);
+    grid-template-rows: repeat(6, max-content);
     /*el tamanio se definira de su contenido*/
     grid-template-areas:
         "main"
         "buy"
         "image1"
         "about"
-        "image2";
+        "image2"
+        "footer";
 }
 
 .main__hero {
@@ -68,7 +81,7 @@ body {
     align-self: end;
     justify-self: end;
     grid-area: main;
-    background-color: var(--black);
+    background-color: var();
     display: flex;
     width: 100px;
     height: 50px;
@@ -149,6 +162,98 @@ body {
     background-image: url("../img/image-about-light.jpg");
 }
 
+.main__footer {
+    grid-area: footer;
+    background-color: var(--bg-footer);
+    border-top: 1px solid var(--grey);
+    padding: 2.5em 1em 1.5em;
+    font-size: 0.9rem;
+}
+
+.main__footer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.main__footer__left {
+    max-width: 500px;
+    color: var(--dark-grey);
+}
+
+.main__footer__left a {
+    color: var(--black);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main__footer__left a:hover {
+    color: var(--grey);
+}
+
+.main__footer__right {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+.main__footer__icon {
+    font-size: 1.6rem;
+    color: var(--dark-grey);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.main__footer__icon:hover {
+    transform: scale(1.2);
+    color: var(--black);
+}
+
+.main__footer__icon:last-child {
+    margin-right: 3px;
+}
+
+.main__footer__bottom {
+    margin: 0;
+    text-align: center;
+    color: var(--grey);
+    font-size: 0.85rem;
+}
+
+.interface-tools {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+
+.interface-tools button {
+    background-color: var(--dark-grey);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.interface-tools button:hover {
+    transform: scale(1.1);
+    background-color: var(--black);
+}
+
+#scroll-top {
+    display: none; /* Oculto por defecto */
+}
+
 @media (min-width: 768px) {
     .container {
         width: 85%;
@@ -162,7 +267,8 @@ body {
             "main main main main buy buy buy"
             "main main main main buy buy buy"
             "image1 image1 about about about image2 image2"
-            "image1 image1 about about about image2 image2";
+            "image1 image1 about about about image2 image2"
+            "footer footer footer footer footer footer footer";
     }
 
     .main__hero {
@@ -197,5 +303,100 @@ body {
 
     .main__logo {
         margin: 0;
+    }
+
+    .main__footer__content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    .main__footer__left {
+        text-align: left;
+    }
+
+    .main__footer__right {
+        justify-content: flex-end;
+    }
+
+    .main__footer__bottom {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #111;
+        --bg-secondary: #222;
+        --border: #444;
+        --bg-hover-primary: #555;
+        --bg-hover-secondary: #454545;
+
+        --text-primary: #eee;
+        --text-secondary: #a1a1a1;
+        --grey: #a1a1a1;
+    }
+
+    body {
+        background-color: var(--bg);
+        color: var(--text);
+    }
+
+    .main__title {
+        color: var(--text);
+    }
+
+    .main__paragraph {
+        color: var(--text-secondary);
+    }
+
+    .main__cta {
+        color: var(--text);
+    }
+
+    .main__footer {
+        background-color: var(--bg-footer);
+        border-top: 1px solid var(--border);
+    }
+
+    .main__footer__left {
+        color: var(--text);
+    }
+
+    .main__footer__left a {
+        color: var(--text);
+    }
+
+    .main__footer__left a:hover {
+        color: var(--text-secondary);
+    }
+
+    .main__footer__icon {
+        color: var(--text);
+    }
+
+    .main__footer__icon:hover {
+        color: var(--text-secondary);
+    }
+
+    .main__footer__bottom {
+        color: var(--text-secondary);
+    }
+
+    .main__controls {
+        background-color: var(--bg);
+    }
+
+    .interface-tools button {
+        background-color: var(--bg);
+        color: var(--text);
+        box-shadow: 0 0 3px var(--grey);
+    }
+
+    .interface-tools button:hover {
+        background-color: var(--border);
     }
 }
