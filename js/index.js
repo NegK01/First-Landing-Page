@@ -33,20 +33,45 @@ arrows[1].addEventListener("click", () => {
     updateBackground();
 });
 
-// Modo claro / oscuro, considerar cambiar los emojis a svg de color blanco
-document.getElementById("theme-toggle").addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const icon = document.getElementById("theme-toggle");
-    icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+// Preferencia de tema al cargar
+window.addEventListener("DOMContentLoaded", () => {
+    const userPref = localStorage.getItem("theme");
+    if (userPref === "dark") {
+        document.body.classList.add("dark-mode");
+    } else if (userPref === "light") {
+        document.body.classList.remove("dark-mode");
+    } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (prefersDark) {
+            document.body.classList.add("dark-mode");
+        } else {
+            document.body.classList.remove("dark-mode");
+        }
+    }
+    updateBackground();
 });
+
+// Alternar modo claro/oscuro y guardar preferencia
+const themeBtn = document.getElementById("theme-toggle");
+console.log("themeBtn:", themeBtn);
+if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+        console.log("Botón presionado");
+        const isDark = document.body.classList.toggle("dark-mode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+} else {
+    console.error("No se encontró el botón #theme-toggle");
+}
 
 // Scroll to top
-document.getElementById("scroll-top").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});
+const scrollBtn = document.getElementById("scroll-top");
+if (scrollBtn) {
+    scrollBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-// Mostrar botón solo cuando se ha hecho scroll
-window.addEventListener("scroll", () => {
-    const scrollBtn = document.getElementById("scroll-top");
-    scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-});
+    window.addEventListener("scroll", () => {
+        scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+}
