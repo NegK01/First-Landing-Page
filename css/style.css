@@ -1,8 +1,12 @@
 :root {
-    --white: hsl(0, 100%, 100%);
-    --grey: hsl(0, 0%, 63%);
-    --dark-grey: hsl(0, 0%, 27%);
-    --black: hsl(0, 0%, 0%);
+    --border: #a1a1a1;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f8f8;
+    --bg-hover: #555;
+    --text-primary: #000;
+    --text-secondary: #a1a1a1;
+    --text-nav: #fff;
+    --controls: #000;
 }
 
 * {
@@ -12,6 +16,7 @@
 
 body {
     font-family: "League Spartan", sans-serif;
+    background-color: var(--bg-primary);
 }
 
 .container {
@@ -22,18 +27,19 @@ body {
 }
 
 .main {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, max-content);
+    grid-template-rows: repeat(6, max-content);
     /*el tamanio se definira de su contenido*/
     grid-template-areas:
         "main"
         "buy"
         "image1"
         "about"
-        "image2";
+        "image2"
+        "footer";
 }
 
 .main__hero {
@@ -59,6 +65,7 @@ body {
 
 .main__links {
     display: none;
+    color: var(--text-nav);
 }
 
 .main__logo {
@@ -69,7 +76,7 @@ body {
     align-self: end;
     justify-self: end;
     grid-area: main;
-    background-color: var(--black);
+    background-color: var(--controls);
     display: flex;
     width: 100px;
     height: 50px;
@@ -103,13 +110,13 @@ body {
 }
 
 .main__title {
-    color: var(--black);
+    color: var(--text-primary);
 }
 
 .main__paragraph {
     line-height: 1.5;
     margin: 1em 0 2em;
-    color: var(--grey);
+    color: var(--text-secondary);
 }
 
 .main__paragraph--about {
@@ -118,7 +125,7 @@ body {
 
 .main__cta {
     text-decoration: none;
-    color: var(--dark-grey);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 4px;
     transition: transform 0.3s;
@@ -150,6 +157,108 @@ body {
     background-image: url("../img/image-about-light.jpg");
 }
 
+.main__footer {
+    grid-area: footer;
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    padding: 2.5em 1em 1.5em;
+    font-size: 0.9rem;
+}
+
+.main__footer__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.main__footer__left {
+    max-width: 500px;
+    color: var(--text-primary);
+}
+
+.main__footer__left a {
+    color: var(--text-primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main__footer__left a:hover {
+    color: var(--bg-hover);
+}
+
+.main__footer__right {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+}
+
+.main__footer__icon {
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.main__footer__icon:hover {
+    transform: scale(1.2);
+    color: var(--bg-hover);
+}
+
+.main__footer__icon:last-child {
+    margin-right: 3px;
+}
+
+.main__footer__bottom {
+    margin: 0;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.interface-tools {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+
+.interface-tools button {
+    background-color: var(--bg-secondary);
+    border: 1px var(--border) solid;
+    box-shadow: 0 0 3px var(--border);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interface-tools button:hover {
+    transform: scale(1.1);
+    background-color: var(--bg-hover);
+}
+
+.icon-sun {
+    display: none;
+}
+.icon-moon {
+    display: inline;
+}
+
+#scroll-top {
+    display: none; /* Oculto por defecto */
+}
+
 @media (min-width: 768px) {
     .container {
         width: 85%;
@@ -163,7 +272,8 @@ body {
             "main main main main buy buy buy"
             "main main main main buy buy buy"
             "image1 image1 about about about image2 image2"
-            "image1 image1 about about about image2 image2";
+            "image1 image1 about about about image2 image2"
+            "footer footer footer footer footer footer footer";
     }
 
     .main__hero {
@@ -192,11 +302,129 @@ body {
     }
 
     .main__link {
-        color: var(--white);
+        color: var(--text-nav);
         text-decoration: none;
     }
 
     .main__logo {
         margin: 0;
+    }
+
+    .main__footer__content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: center;
+        padding: 40px 0;
+    }
+
+    .main__footer__left {
+        text-align: left;
+    }
+
+    .main__footer__right {
+        justify-content: flex-end;
+    }
+
+    .main__footer__bottom {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+
+
+body.dark-mode {
+    --border: #444;
+    --bg-primary: #111;
+    --bg-secondary: #222;
+    --bg-hover: #555;
+    --text-primary: #eee;
+    --text-secondary: #a1a1a1;
+
+    background-color: var(--bg-primary);
+
+    .main__title {
+        color: var(--text-primary);
+    }
+
+    .main__paragraph {
+        color: var(--text-secondary);
+    }
+
+    .main__cta {
+        color: var(--text-primary);
+    }
+
+    /* .main__arrow {
+        filter: invert(100%); Un metodo bueno, pero con muchos bugs en iOS si se utiliza svg, entonces usaremos una imagen extra, una blanca y otra negra
+    } */
+
+    .main__arrow.light {
+        display: none;
+    }
+
+    .main__arrow.dark {
+        display: inline;
+    }
+
+    .main__controls {
+        background-color: var(--bg-secondary);
+        /*haremos que el bg del control sea el mismo que el bg del footer para que combine,
+        en el modo light debe ser distinto por la paleta actual de blanco y negro*/
+    }
+
+    .main__footer {
+        background-color: var(--bg-secondary);
+        border-top: 1px solid var(--border);
+    }
+
+    .main__footer__left {
+        color: var(--text-primary);
+    }
+
+    .main__footer__left a {
+        color: var(--text-primary);
+    }
+
+    .main__footer__left a:hover {
+        color: var(--bg-hover);
+    }
+
+    .main__footer__icon {
+        color: var(--text-primary);
+    }
+
+    .main__footer__icon:hover {
+        color: var(--bg-hover);
+    }
+
+    .main__footer__bottom {
+        color: var(--text-secondary);
+    }
+
+    .interface-tools button {
+        background-color: var(--bg-secondary);
+        border: 1px var(--border) solid;
+        box-shadow: 0 0 3px var(--border);
+    }
+
+    .interface-tools button:hover {
+        background-color: var(--bg-hover);
+    }
+
+    .interface-tools button.light {
+        display: none;
+    }
+
+    .interface-tools button.dark {
+        display: inline;
+    }
+
+    .icon-sun {
+        display: inline;
+    }
+    .icon-moon {
+        display: none;
     }
 }
