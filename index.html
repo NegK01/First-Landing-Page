@@ -18,6 +18,10 @@
             href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
             rel="stylesheet"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        />
     </head>
     <body>
         <main class="main">
@@ -67,9 +71,13 @@
                     <a href="#" class="main__cta"
                         >Shop Now
                         <img
-                            src="img/icons/icon-arrow.svg"
-                            alt="icon-arrow"
-                            class="main__arrow"
+                            src="img/icons/icon-arrow-black.svg"
+                            alt="arrow"
+                            class="main__arrow light" />
+                        <img
+                            src="img/icons/icon-arrow-white.svg"
+                            alt="arrow"
+                            class="main__arrow dark"
                     /></a>
                 </div>
             </section>
@@ -92,6 +100,89 @@
             </section>
 
             <section class="main__bg main__bg--second"></section>
+
+            <section class="main__footer">
+                <div class="main__footer__content container">
+                    <!-- Izquierda: Créditos -->
+                    <div class="main__footer__left">
+                        <p class="main__footer__paragraph">
+                            Challenge by
+                            <a
+                                href="https://www.frontendmentor.io?ref=challenge"
+                                target="_blank"
+                                >Frontend Mentor</a
+                            >.
+                            <br />
+                            Coded by
+                            <a
+                                href="https://github.com/NegK01/First-Landing-Page/tree/main"
+                                target="_blank"
+                                >Neg</a
+                            >.
+                        </p>
+                    </div>
+
+                    <!-- Derecha: Redes sociales -->
+                    <div class="main__footer__right">
+                        <a
+                            href="https://github.com/NegK01"
+                            target="_blank"
+                            class="main__footer__icon"
+                            aria-label="GitHub"
+                        >
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a
+                            href="https://www.linkedin.com"
+                            target="_blank"
+                            class="main__footer__icon"
+                            aria-label="LinkedIn"
+                        >
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a
+                            href="https://www.youtube.com"
+                            target="_blank"
+                            class="main__footer__icon"
+                            aria-label="YouTube"
+                        >
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Centro inferior: Copyright -->
+                <div class="main__footer__bottom">
+                    <aside
+                        class="interface-tools"
+                        aria-label="Herramientas de interfaz"
+                    >
+                        <button
+                            id="theme-toggle"
+                            aria-label="Cambiar entre modo claro y oscuro"
+                        >
+                            <img
+                                src="img/icons/icon-sun-white.svg"
+                                alt="Modo claro"
+                                class="icon-sun"
+                            />
+                            <img
+                                src="img/icons/icon-moon-black.svg"
+                                alt="Modo oscuro"
+                                class="icon-moon"
+                            />
+                        </button>
+                        <button
+                            id="scroll-top"
+                            aria-label="Volver al inicio de la página"
+                        >
+                            ⬆️
+                        </button>
+                    </aside>
+
+                    <p>&copy; 2025 Neg. All rights reserved.</p>
+                </div>
+            </section>
 
             <div class="main__controls">
                 <img
